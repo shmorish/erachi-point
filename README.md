@@ -9,13 +9,14 @@
 | 実行環境 | Cloudflare Workers |
 | Web フレームワーク | Hono（JSX でサーバー側から HTML を返す） |
 | 画面の部分更新 | htmx 2（CDN から読み込み） |
+| CSS | Tailwind CSS v4（`src/app.css` をビルドして `public/app.css` に出力） |
 | DB | Cloudflare D1（SQLite） |
 | 静的ファイル | Workers Static Assets（`public/`：PWA の manifest とアイコン） |
 | ビルド・デプロイ | wrangler |
 | 言語 | TypeScript |
 | パッケージ管理 | pnpm |
 
-フロントエンドのビルドはない。CSS とブラウザ側の JS は文字列としてサーバーから HTML に埋め込んでいる。
+CSS は Tailwind CLI でビルドする。wrangler の `build.command` に登録しているので、`pnpm dev` と `pnpm run deploy` の前に自動で実行される。ブラウザ側の JS は文字列としてサーバーから HTML に埋め込んでいる。
 
 ## 仕組み
 
@@ -32,7 +33,7 @@
 src/
 ├── index.ts          ルートの組み立て
 ├── db.ts             型、期間の計算、DB 読み込み
-├── styles.ts         CSS
+├── app.css           CSS（Tailwind のエントリー、Hum テーマのトークン）
 ├── client.ts         ブラウザ側の JS（カウントアップ、シートの開閉、残高チェック）
 ├── components/       画面の部品（Layout, Records, Editor, Sheet, TabBar, Icon）
 └── pages/            ページごとのルートと API（records, edit）

@@ -7,13 +7,16 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "lint": "biome check .",
     "format": "biome check --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:css": "tailwindcss -i src/app.css -o public/app.css --minify"
   },
   "dependencies": {
     "hono": "^4.13.13"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3",
     "typescript": "^7.0.0",
     "wrangler": "^4.110.0"
   },

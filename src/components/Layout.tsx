@@ -4,7 +4,6 @@ import { html } from "hono/html";
 import type { Child } from "hono/jsx";
 import { clientScript } from "../client";
 import type { Data, Env } from "../db";
-import { style } from "../styles";
 import { Sheet } from "./Sheet";
 import { type Tab, TabBar } from "./TabBar";
 
@@ -29,7 +28,7 @@ export function renderPage(c: Context<Env>, data: Data, active: Tab, title: stri
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Zen+Maru+Gothic:wght@500;700&family=JetBrains+Mono:wght@500&display=swap"
           />
-          <style dangerouslySetInnerHTML={{ __html: style }} />
+          <link rel="stylesheet" href="/app.css" />
           <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.11/dist/htmx.min.js"></script>
           {/* head のスクリプトは hx-boost で body を差し替えても再実行されない */}
           <script dangerouslySetInnerHTML={{ __html: clientScript }} />

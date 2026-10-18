@@ -3,6 +3,8 @@
   "name": "erachi-point",
   "main": "src/index.ts",
   "compatibility_date": "2026-10-17",
+  // public/app.css を Tailwind で生成してから dev / deploy する
+  "build": { "command": "pnpm build:css", "watch_dir": "src" },
   "assets": { "directory": "./public" },
   "d1_databases": [
     {
