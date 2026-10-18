@@ -13,7 +13,7 @@
     {
       "customType": "regex",
       "description": "CDN から読み込んでいる htmx のバージョン",
-      "fileMatch": ["^src/components/Layout\\.tsx$"],
+      "managerFilePatterns": ["/^src/components/Layout\\.tsx$/"],
       "matchStrings": ["cdn\\.jsdelivr\\.net/npm/(?<depName>htmx\\.org)@(?<currentValue>[\\d.]+)/"],
       "datasourceTemplate": "npm"
     }
