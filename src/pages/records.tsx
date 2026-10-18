@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import { setCookie } from "hono/cookie";
 import { renderPage } from "../components/Layout";
 import { Records } from "../components/Records";
+import { pageTitle } from "../components/ui";
 import { type Env, load, viewOf } from "../db";
 
 export const records = new Hono<Env>();
@@ -15,7 +16,7 @@ records.get("/", async (c) => {
     "records",
     "えらちぽいんと",
     <>
-      <h1 class="page-title">えらちぽいんと</h1>
+      <h1 class={pageTitle}>えらちぽいんと</h1>
       <Records users={data.users} logs={data.logs} view={viewOf(c.req.url)} />
     </>,
   );

@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { Editor, KIND_LABEL } from "../components/Editor";
 import { renderPage } from "../components/Layout";
+import { pageTitle, seg, segInput, segItem } from "../components/ui";
 import { type Env, type Kind, load } from "../db";
 
 export const edit = new Hono<Env>();
@@ -13,12 +14,12 @@ edit.get("/edit", async (c) => {
     "editor",
     "編集 | えらちぽいんと",
     <>
-      <h1 class="page-title">編集</h1>
+      <h1 class={pageTitle}>編集</h1>
       {/* 切り替えは CSS だけで行う。ラジオは差し替え対象の外にあるので、追加・削除しても選択が残る */}
-      <div class="seg edit-seg" role="radiogroup" aria-label="編集する対象">
+      <div class={`${seg} mt-sm`} role="radiogroup" aria-label="編集する対象">
         {(Object.keys(KIND_LABEL) as Kind[]).map((k) => (
-          <label>
-            <input type="radio" name="edit-tab" value={k} checked={k === "chores"} />
+          <label class={segItem}>
+            <input class={segInput} type="radio" name="edit-tab" value={k} checked={k === "chores"} />
             {KIND_LABEL[k]}
           </label>
         ))}

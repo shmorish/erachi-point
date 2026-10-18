@@ -12,7 +12,7 @@ export function renderPage(c: Context<Env>, data: Data, active: Tab, title: stri
   const who = Number(getCookie(c, "who")) || data.users[0]?.id;
   return c.html(
     html`<!doctype html>${(
-      <html lang="ja">
+      <html lang="ja" class="overflow-x-clip has-[dialog[open]]:overflow-hidden">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -33,8 +33,10 @@ export function renderPage(c: Context<Env>, data: Data, active: Tab, title: stri
           {/* head のスクリプトは hx-boost で body を差し替えても再実行されない */}
           <script dangerouslySetInnerHTML={{ __html: clientScript }} />
         </head>
-        <body>
-          <main>{children}</main>
+        <body class="overflow-x-clip bg-paper font-body text-md leading-[1.6] text-ink tabular-nums">
+          <main class="mx-auto max-w-shell px-gutter pt-[calc(var(--spacing-md)+env(safe-area-inset-top))] pb-[calc(var(--spacing-tabbar)+var(--spacing-xl)+env(safe-area-inset-bottom))]">
+            {children}
+          </main>
           <Sheet users={data.users} chores={data.chores} rewards={data.rewards} who={who} />
           <TabBar active={active} />
         </body>

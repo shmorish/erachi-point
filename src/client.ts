@@ -5,7 +5,8 @@ const prev = {};
 function burst(el) {
   const r = el.getBoundingClientRect();
   const s = document.createElement("span");
-  s.className = "star-burst";
+  s.className =
+    "pointer-events-none fixed size-6 animate-star-burst bg-[linear-gradient(90deg,transparent_47%,var(--color-accent-3)_47%_53%,transparent_53%),linear-gradient(0deg,transparent_47%,var(--color-accent-3)_47%_53%,transparent_53%)]";
   s.style.left = r.left + r.width / 2 - 12 + "px";
   s.style.top = r.top + r.height / 2 - 12 + "px";
   s.addEventListener("animationend", () => s.remove());
@@ -40,6 +41,6 @@ document.addEventListener("htmx:afterSettle", tick);
 document.addEventListener("click", (e) => {
   const sheet = document.getElementById("sheet");
   if (e.target.closest("[data-open-sheet]")) { gate(); sheet.showModal(); }
-  else if (e.target.closest("[data-close-sheet], .chore") || e.target === sheet) sheet.close();
+  else if (e.target.closest("[data-close-sheet], [data-sheet-action]") || e.target === sheet) sheet.close();
 });
 `;

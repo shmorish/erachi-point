@@ -35,7 +35,7 @@ src/
 ├── db.ts             型、期間の計算、DB 読み込み
 ├── app.css           CSS（Tailwind のエントリー、Hum テーマのトークン）
 ├── client.ts         ブラウザ側の JS（カウントアップ、シートの開閉、残高チェック）
-├── components/       画面の部品（Layout, Records, Editor, Sheet, TabBar, Icon）
+├── components/       画面の部品（Layout, Records, Editor, Sheet, TabBar, Icon）と共通クラス（ui.ts）
 └── pages/            ページごとのルートと API（records, edit）
 migrations/           D1 のマイグレーション（SQL）
 public/               PWA の manifest とアイコン
