@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import { type Data, type User, type View, VIEWS } from "../db";
+import { type Data, type User, VIEWS, type View } from "../db";
 
 export const Records: FC<Pick<Data, "users" | "logs"> & { view: View }> = ({ users, logs, view }) => {
   const pts = (u: User) => (view === "all" ? u.balance : u[view]);
@@ -51,7 +51,7 @@ export const Records: FC<Pick<Data, "users" | "logs"> & { view: View }> = ({ use
                 {l.user_name}・{l.chore_name}
               </span>
               <span class={l.points < 0 ? "pt is-spent" : "pt"}>{l.points < 0 ? l.points : `+${l.points}`}</span>
-              <button class="ghost" hx-delete={`/logs/${l.id}`} hx-target="#records" hx-swap="outerHTML">
+              <button type="button" class="ghost" hx-delete={`/logs/${l.id}`} hx-target="#records" hx-swap="outerHTML">
                 取り消す
               </button>
             </li>

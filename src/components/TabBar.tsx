@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import { Icon, ICON_EDIT, ICON_LIST, ICON_PLUS } from "./Icon";
+import { ICON_EDIT, ICON_LIST, ICON_PLUS, Icon } from "./Icon";
 
 export type Tab = "records" | "editor";
 
@@ -9,7 +9,7 @@ export const TabBar: FC<{ active: Tab }> = ({ active }) => (
       <Icon d={ICON_LIST} />
       記録
     </a>
-    <button class="tab tab-main" data-open-sheet aria-haspopup="dialog">
+    <button type="button" class="tab tab-main" data-open-sheet aria-haspopup="dialog">
       <span class="tab-main-dot">
         <Icon d={ICON_PLUS} />
       </span>
