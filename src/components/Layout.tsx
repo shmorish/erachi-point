@@ -30,7 +30,7 @@ export function renderPage(c: Context<Env>, data: Data, active: Tab, title: stri
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Zen+Maru+Gothic:wght@500;700&family=JetBrains+Mono:wght@500&display=swap"
           />
           <style dangerouslySetInnerHTML={{ __html: style }} />
-          <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.11/dist/htmx.min.js"></script>
           {/* head のスクリプトは hx-boost で body を差し替えても再実行されない */}
           <script dangerouslySetInnerHTML={{ __html: clientScript }} />
         </head>
